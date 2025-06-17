@@ -98,3 +98,7 @@ You’ve successfully:
 - Pushed the image to Docker Hub
 
 This completes your first Docker hands-on exercise! 🎉
+
+## 📚 Resources
+
+* 🔗 [Docker for Beginners – YouTube Tutorial](https://youtu.be/wodLpta-hoQ?si=QdY4mbTUCnqZDQTk)
