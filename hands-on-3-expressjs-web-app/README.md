@@ -130,4 +130,82 @@ http://localhost:9000/
   docker ps   # get CONTAINERS running currently
   docker stop <CONTAINER_ID>
   ```
+---
+### 🐳 Docker Compose
 
+- Used to **manage multi-container applications** efficiently.
+- In microservice architectures, you often need to manage multiple services like **payment** and **catalogue**. These services may have **dependencies**—for example, the payment service might depend on the catalogue service, so you need to **ensure the correct startup order**.
+- To simplify this process and avoid handling each container manually, Docker Compose allows you to define everything in a **single YAML file**.
+- With just one command:
+
+  ```bash
+  docker-compose up
+  ```
+
+you can launch the entire application.
+Press `Ctrl + C` to stop it.
+
+* To remove all containers created by Docker Compose, use:
+
+  ```bash
+  docker-compose down
+  ```
+
+* **Note:** Docker Compose is **not a replacement for Docker**, but a tool built on top of it to **simplify container orchestration**.
+---
+
+## ⚙️ Using Docker Compose to Run the Express.js App
+
+Now we’ll explore how to use Docker Compose to achieve the same outcome as before in a more streamlined way.
+
+### 📄 Step 1: Create `docker-compose.yaml`
+
+```bash
+touch docker-compose.yaml
+```
+
+Add the following content:
+
+```yaml
+services:
+  node-application:
+    build: .
+    container_name: node-application
+    ports:
+      - "9000:3000"
+    restart: always
+```
+
+### 🔍 Explanation
+
+* `services:` – Defines the list of containers.
+* `node-application:` – Name of your service (container).
+* `build: .` – Builds using the Dockerfile in the current directory.
+* `container_name:` – Sets a custom name for the container.
+* `ports:` – Maps container's port **3000** to host's port **9000**.
+* `restart: always` – Automatically restarts the container if it crashes or the system reboots.
+
+### 🚀 Step 2: Run the Application
+
+```bash
+docker-compose up
+```
+
+To stop the services:
+
+```bash
+docker-compose down
+```
+
+### 🧪 Additional Tip: Run Container in Background
+
+To run a Docker container in the background (detached mode), use the `-d` flag. This tells Docker to detach the container's output and run it in the background.
+
+```bash
+docker run -d -p 9000:3000 node-application
+```
+
+## 📚 Resources
+
+* [Medium Article - Dockerizing a Node.js and Express.js APP](https://medium.com/@muhammadnaqeeb/dockerizing-a-node-js-and-express-js-app-9cb31cf9139e)
+* [Youtube - Docker Compose Beginner Level Guide with multiple examples | Docker Compose is Easy](https://youtu.be/eYzIPGHxnQo?si=Se5GQDmBrXcy501X)
