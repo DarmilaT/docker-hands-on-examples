@@ -4,9 +4,12 @@ This repository contains a collection of hands-on Docker examples to learn and p
 
 ## 🧠 What’s Inside
 
-| # | Hands-On Title              | Description                                |
-|---|-----------------------------|--------------------------------------------|
-| 1 | Basic Python App            | Run a simple Python script in Docker       |
+| #  | Hands-On Title     | Description                                  |
+|----|---------------------|----------------------------------------------|
+| 1  | Basic Python App    | Run a simple Python script in Docker         |
+| 2  | Django Web App      | Create and run a Django web app in Docker    |
+| 3  | Express.js Web App  | Create a simple Express.js app and run it in Docker |
+
 
 
 Each hands-on example contains:
